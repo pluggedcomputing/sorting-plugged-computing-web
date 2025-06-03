@@ -13,6 +13,12 @@ const levelScreen = (props) =>{
             <Helmet htmlAttributes={{lang:'pt-Br'}}>
             <title>{ `Fase ${ props.level}` }</title>
             </Helmet>
+            {/* Botão Home no canto superior direito */}
+            <div className="home-button">
+                <Link to="/LevelSelection">
+                    <FontAwesomeIcon icon={faHouse} size="2x" />
+                </Link>
+            </div>
             <div><Link to={props.previousLevel} ><FontAwesomeIcon icon={faAngleLeft} size="3x"/></Link></div>
             <div class="content">
                 <h3><strong>FASE {props.level}</strong></h3>

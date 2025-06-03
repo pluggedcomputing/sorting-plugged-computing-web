@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const AppWrapper = styled.div`
-
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -16,15 +15,15 @@ export const QuizWrapper = styled.div`
   padding: 20px;
   max-width: 600px;
 
-
-  .toast{
+  .toast {
     position: absolute;
     top: 110px;
   }
+
   h2 {
     font-size: 1rem;
     margin-bottom: 20px;
-    color:#07377A;
+    color: #07377A;
   }
 
   ul {
@@ -34,9 +33,9 @@ export const QuizWrapper = styled.div`
   }
 
   li {
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
     cursor: pointer;
     background-color: #07377A;
@@ -48,11 +47,10 @@ export const QuizWrapper = styled.div`
     box-shadow: 0 8px 5px #07377a3f;
     font-size: 1rem;
     font-weight: bold;
-    text-align:center;  
-
+    text-align: center;
   }
 
-  & .wrong{
+  & .wrong {
     background-color: red;
   }
 
@@ -62,42 +60,99 @@ export const QuizWrapper = styled.div`
     margin-bottom: 20px;
   }
 
-  video{
+  video {
     max-height: 700px;
     margin: 20px 0;
   }
 
-  @media(max-width: 770px) and (min-width:340px){
-    height:100%;
+  .feedback-toast {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #FFF9C4;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    text-align: center;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
 
-    li{
-      width:350px;
+  .feedback-toast.success {
+    background-color: #E6FFCC;
+    color: green;
+  }
+
+  .feedback-toast.error {
+    background-color: #FFE6E6;
+    color: red;
+  }
+
+  .home-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .home-button a {
+    padding: 12px;
+    border-radius: 50%;
+    color: #07377A;
+    background: none;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 770px) and (min-width: 340px) {
+    height: 100%;
+
+    li {
+      width: 350px;
       font-size: 1rem;
     }
 
-    video{
+    video {
       width: 100%;
       max-height: 380px;
     }
-    
-}
-
-@media(max-width: 900px) and (min-width:770px){
-  width: 550px;
-
-  & .description{
-    width:250px;
-    margin: 0;
   }
 
-  & p{
-    font-size:2rem;
+  @media (max-width: 900px) and (min-width: 770px) {
+    width: 550px;
+
+    & .description {
+      width: 250px;
+      margin: 0;
+    }
+
+    & p {
+      font-size: 2rem;
+    }
   }
 
-}
+  @media (max-width: 1200px) and (min-width: 900px) {
+    width: 600px;
+  }
+`;
 
-@media(max-width: 1200px) and (min-width:900px){
-  width: 600px; 
-}
+// 👇 Seta de voltar para a introdução do nível
+export const BackArrow = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 100;
 
+  a {
+    color: #500D7C; /* Roxo padrão das setas */
+    text-decoration: none;
+  }
 `;
