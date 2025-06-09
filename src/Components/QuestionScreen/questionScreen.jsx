@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { saveAnswer } from '../../services/QuizStorageService';
+import { saveAnswer, clearLevelAnswers, getScore } from '../../services/QuizStorageService';
 
 import { AppWrapper, QuizWrapper, BackArrow } from './questionScreenStyled';
 import Congratulations from '../Congratulations/congratulations';
@@ -13,6 +13,13 @@ const Quiz = (props) => {
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
   const [feedbackText, setFeedbackText] = useState('');
+
+  const questions = props.questions;
+  const level = props.level;
+
+  useEffect(() => {
+    clearLevelAnswers(level); 
+  }, [level]);
 
   const imagens = {
     l1q1_a: require('../../assets/images/levels/level1/level1_3.png'),
@@ -52,10 +59,6 @@ const Quiz = (props) => {
   const getImagens = type => imagens[type] || null;
   const getVideos = type => videos[type] || null;
 
-  const questions = props.questions;
-  const level = props.level;
-
-  // última tela de introdução por nível
   const lastIntroScreenByLevel = {
     1: 2,
     2: 3,
@@ -65,27 +68,35 @@ const Quiz = (props) => {
 
   const lastIntroScreen = lastIntroScreenByLevel[level] || 1;
 
-  const handleAnswerClick = (answerIndex) => {
-    const currentQuestion = questions[currentQuestionIndex];
-    if (isAnswerCorrect === null) {
-      const isCorrect = currentQuestion.options[answerIndex].answerIndex;
-      const questionId = currentQuestion.id;
-      saveAnswer(level, questionId, isCorrect);
+const handleAnswerClick = (answerIndex) => {
+  const currentQuestion = questions[currentQuestionIndex];
+  const selectedOption = currentQuestion.options?.[answerIndex];
 
-      setSelectedAnswerIndex(answerIndex);
-      setIsAnswerCorrect(isCorrect);
-      setFeedbackText(isCorrect ? '✅ Parabéns!' : '❌ Tente outra vez!');
+  if (selectedOption?.isSkip) {
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+    return;
+  }
 
-      setTimeout(() => {
-        if (isCorrect) {
-          setCurrentQuestionIndex(currentQuestionIndex + 1);
-        }
-        setSelectedAnswerIndex(null);
-        setIsAnswerCorrect(null);
-        setFeedbackText('');
-      }, 2000);
-    }
-  };
+  if (selectedOption && isAnswerCorrect === null) {
+    const isCorrect = selectedOption.answerIndex;
+    const questionId = currentQuestion.id;
+    saveAnswer(level, questionId, isCorrect);
+
+    setSelectedAnswerIndex(answerIndex);
+    setIsAnswerCorrect(isCorrect);
+    setFeedbackText(isCorrect ? '✅ Parabéns!' : '❌ Tente outra vez!');
+
+    setTimeout(() => {
+      if (isCorrect) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+      }
+      setSelectedAnswerIndex(null);
+      setIsAnswerCorrect(null);
+      setFeedbackText('');
+    }, 2000);
+  }
+};
+
 
   const showImage = url => url ? <img src={getImagens(url)} /> : null;
   const showVideo = url => <video controls src={getVideos(url)} width="560" height="315" />;
@@ -96,14 +107,12 @@ const Quiz = (props) => {
         <title>{`Fase ${level}`}</title>
       </Helmet>
 
-      {/* Botão Home */}
       <div className="home-button">
         <Link to="/LevelSelection">
           <FontAwesomeIcon icon={faHouse} size="2x" />
         </Link>
       </div>
 
-      {/* Botão de voltar para a última tela da introdução */}
       <BackArrow>
         <Link to={`/level${level}-${lastIntroScreen}`}>
           <FontAwesomeIcon icon={faAngleLeft} size="3x" />
@@ -116,7 +125,6 @@ const Quiz = (props) => {
 
       <h2>{questions[currentQuestionIndex].question}</h2>
 
-      {/* Feedback visual */}
       {feedbackText !== '' && (
         <div style={{
           position: 'absolute',
@@ -172,9 +180,23 @@ const Quiz = (props) => {
   );
 
   if (currentQuestionIndex >= questions.length) {
+    const correctAnswersMap = {};
+    questions.forEach(q => {
+      const correctOption = q.options.find(opt => opt.answerIndex === true);
+      if (correctOption) {
+        correctAnswersMap[q.id] = true;
+      }
+    });
+
+    const score = getScore(level, correctAnswersMap);
+
     return (
       <AppWrapper style={{ backgroundColor: "#F2C824" }}>
-        <Congratulations level={level} levelReload={`/level${level}-1`} />
+        <Congratulations
+          level={level}
+          levelReload={`/level${level}-1`}
+          score={score}
+        />
       </AppWrapper>
     );
   }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const AppWrapper = styled.div`
   min-height: 100vh;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,18 +98,18 @@ export const QuizWrapper = styled.div`
   .home-button {
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 40px;
   }
 
   .home-button a {
+    background-color: #F2C824; 
     padding: 12px;
     border-radius: 50%;
-    color: #07377A;
-    background: none;
-    box-shadow: none;
+    color: #07377A; 
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
 
   @media (max-width: 770px) and (min-width: 340px) {
@@ -143,7 +144,6 @@ export const QuizWrapper = styled.div`
   }
 `;
 
-// 👇 Seta de voltar para a introdução do nível
 export const BackArrow = styled.div`
   position: absolute;
   top: 50%;

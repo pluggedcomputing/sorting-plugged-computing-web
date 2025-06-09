@@ -8,7 +8,7 @@ const questions = [
       url: "l4_mp4"
     },
     options: [
-      { id: 1, text: "Já assisti!", answerIndex: true },
+      { id: 1, text: "Já assisti!", isSkip: true },
     ]
   },
   {
@@ -46,7 +46,7 @@ const questions = [
       url: "l4q3_a"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -58,7 +58,7 @@ const questions = [
       url: "l4q3_b"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -70,7 +70,7 @@ const questions = [
       url: "l4q3_c"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -82,7 +82,7 @@ const questions = [
       url: "l4q3_d"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -94,7 +94,7 @@ const questions = [
       url: "l4q3_e"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -106,7 +106,7 @@ const questions = [
       url: "l4q3_f"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -118,7 +118,7 @@ const questions = [
       url: "l4q3_g"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -130,7 +130,7 @@ const questions = [
       url: "l4q3_h"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -141,7 +141,7 @@ const questions = [
       url: "l4q3_i"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {

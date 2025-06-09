@@ -30,19 +30,19 @@ const questions = [
     ],
 
   },
-  {
-    id: 3,
-    question: "Você notou que faz várias comparações para descobrir em qual posição irá colocar a carta? Veja o vídeo acima para aprender mais.",
-    isVideo: true,
-    video: {
-      name: null,
-      url: "l2_mp4"
-    },
-    options: [
-      { id: 1, text: "Já assisti!", answerIndex: true },
-    ],
+{
+  id: 3,
+  question: "Você notou que faz várias comparações para descobrir em qual posição irá colocar a carta? Veja o vídeo acima para aprender mais.",
+  isVideo: true,
+  video: {
+    name: null,
+    url: "l2_mp4"
+  },
+  options: [
+    { id: 1, text: "Já assisti!", isSkip: true }
+  ],
+}
 
-  }
 ];
 
 export default questions;

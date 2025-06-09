@@ -22,7 +22,7 @@ const questions = [
       url: "l3q2_a"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -34,7 +34,7 @@ const questions = [
       url: "l3q2_b"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -61,7 +61,7 @@ const questions = [
       url: "l3q3_a"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
 
     ]
   },
@@ -74,7 +74,7 @@ const questions = [
       url: "l3q3_b"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
 
     ]
   },
@@ -102,7 +102,7 @@ const questions = [
       url: "l3q4_a"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -114,7 +114,7 @@ const questions = [
       url: "l3q4_b"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -140,7 +140,7 @@ const questions = [
       url: "l3q5_a"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
   {
@@ -153,7 +153,7 @@ const questions = [
       url: "l3_mp4"
     },
     options: [
-      { id: 1, text: "Próximo", answerIndex: true },
+      { id: 1, text: "Próximo", isSkip: true },
     ]
   },
 ];
