@@ -65,11 +65,15 @@ const Congratulations = ({ level, levelReload, score }) => {
             </div>
           </Link>
           
-          <a className="nav-btn" onClick={(e) => { e.preventDefault(); handleRetry(); }} style={{ cursor: 'pointer' }}>
-                  <div className="containerButton">
-                     {reloadIcon}
-             </div>
-          </a>
+        <button
+          className="nav-btn"
+          onClick={handleRetry}
+          style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
+        >
+          <div className="containerButton">
+            {reloadIcon}
+          </div>
+        </button>
 
           <Link to={level === 4 ? `/LevelSelection` : `/level${level + 1}-1`}>
             <div className="nav-btn">
