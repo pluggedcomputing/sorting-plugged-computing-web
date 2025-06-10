@@ -97,8 +97,7 @@ const handleAnswerClick = (answerIndex) => {
   }
 };
 
-
-  const showImage = url => url ? <img src={getImagens(url)} /> : null;
+  const showImage = url => url ? <img src={getImagens(url)} alt="" /> : null;
   const showVideo = url => <video controls src={getVideos(url)} width="560" height="315" />;
 
   const renderQuestion = () => (
@@ -113,11 +112,13 @@ const handleAnswerClick = (answerIndex) => {
         </Link>
       </div>
 
+    {!questions[currentQuestionIndex].isVideo && (
       <BackArrow>
         <Link to={`/level${level}-${lastIntroScreen}`}>
           <FontAwesomeIcon icon={faAngleLeft} size="3x" />
         </Link>
       </BackArrow>
+    )}
 
       {questions[currentQuestionIndex].isVideo
         ? showVideo(questions[currentQuestionIndex].video.url)

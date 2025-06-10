@@ -102,10 +102,10 @@ export const QuizWrapper = styled.div`
   }
 
   .home-button a {
-    background-color: #F2C824; 
+    background-color: #F2C824;
     padding: 12px;
     border-radius: 50%;
-    color: #07377A; 
+    color: #07377A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,6 +123,7 @@ export const QuizWrapper = styled.div`
     video {
       width: 100%;
       max-height: 380px;
+      margin: 20px 0;
     }
   }
 
@@ -142,6 +143,30 @@ export const QuizWrapper = styled.div`
   @media (max-width: 1200px) and (min-width: 900px) {
     width: 600px;
   }
+
+  @media (max-width: 768px) {
+    video {
+      margin: 20px 0;
+    }
+  }
+
+  @media (max-width: 527px) {
+    video {
+      margin: 20px 0;
+    }
+  }
+
+  @media (max-height: 800px) {
+    video {
+      margin: 20px 0;
+    }
+  }
+
+  @media (max-height: 700px) {
+    video {
+      margin: 20px 0;
+    }
+  }
 `;
 
 export const BackArrow = styled.div`
@@ -152,7 +177,7 @@ export const BackArrow = styled.div`
   z-index: 100;
 
   a {
-    color: #500D7C; /* Roxo padrão das setas */
+    color: #500D7C;
     text-decoration: none;
   }
 `;

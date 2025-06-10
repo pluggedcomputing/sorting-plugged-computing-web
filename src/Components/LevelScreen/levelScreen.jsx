@@ -20,7 +20,7 @@ const levelScreen = (props) =>{
                 </Link>
             </div>
             <div><Link to={props.previousLevel} ><FontAwesomeIcon icon={faAngleLeft} size="3x"/></Link></div>
-            <div class="content">
+            <div className="content">
                 <h3><strong>FASE {props.level}</strong></h3>
                 <img src={props.image} alt="Fase 1_1" />
                 <p>
