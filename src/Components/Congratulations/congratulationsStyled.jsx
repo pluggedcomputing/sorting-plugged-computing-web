@@ -49,11 +49,20 @@ export const Container = styled.div`
     align-items: center;
   }
 
-  .containerButton {
-    background-color: #07377A;
-    padding: 10px;
-    border-radius: 50%;
-  }
+.containerButton {
+  background-color: #07377A;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.containerButton:hover {
+  background-color: #0a4caa; /* Azul um pouco mais claro */
+}
 
   .nav-buttons {
     width: 55%;
@@ -109,6 +118,11 @@ export const Container = styled.div`
     margin: 0.3rem 0;
   }
 
+  .containerButton {
+  width: 50px;
+  height: 50px;
+  }
+
   .stars {
     font-size: 2.9rem;
   }
@@ -136,6 +150,11 @@ export const Container = styled.div`
 
   .stars {
     font-size: 2.4rem;
+  }
+
+  .containerButton {
+  width: 50px;
+  height: 50px;
   }
 
   .feedback {
@@ -172,6 +191,11 @@ export const Container = styled.div`
     font-size: 2.8rem;
   }
 
+  .containerButton {
+  width: 45px;
+  height: 45px;
+  }
+
   .feedback {
     font-size: 1.2rem;
     padding: 0 6px;
@@ -205,6 +229,11 @@ export const Container = styled.div`
 
   .stars {
     font-size: 2.6rem;
+  }
+
+  .containerButton {
+  width: 45px;
+  height: 45px;
   }
 
   .nav-buttons {

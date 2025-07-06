@@ -9,7 +9,7 @@ const Congratulations = ({ level, levelReload, score }) => {
   const navigate = useNavigate();
 
   const houseIcon = <FontAwesomeIcon icon={faHouse} size="2x" />;
-  const reloadIcon = <FontAwesomeIcon icon={faArrowRightRotate} size="2x" />;
+  const reloadIcon = <FontAwesomeIcon icon={faArrowRightRotate} size="2x" color="white" />;
   const nextLevelIcon = <FontAwesomeIcon icon={faArrowRight} size="2x" />;
   const closeIcon = <FontAwesomeIcon icon={faXmark} size="2x" className="close-button" />;
 
@@ -68,6 +68,7 @@ const Congratulations = ({ level, levelReload, score }) => {
         <button
           className="nav-btn"
           onClick={handleRetry}
+          aria-label="Reiniciar fase"
           style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
         >
           <div className="containerButton">
