@@ -85,15 +85,12 @@ export const Container = styled.div`
     text-align: center;
   }
 
-  .stars {
-    font-size: 3.4rem;
-    color: #FFD700;
-    text-shadow:
-      -0.5px -0.5px 1px #444,
-      0.5px -0.5px 1px #444,
-      -0.5px  0.5px 1px #444,
-      0.5px  0.5px 1px #444;
-  }
+.stars {
+  font-size: 3.4rem;
+  color: #002b56;
+  text-shadow:
+    1px 1px 2px #001933;
+}
 
   .feedback {
     margin-top: 0.6rem;

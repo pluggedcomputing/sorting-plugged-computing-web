@@ -7,6 +7,7 @@ import { saveAnswer, clearLevelAnswers, getScore } from '../../services/QuizStor
 
 import { AppWrapper, QuizWrapper, BackArrow } from './questionScreenStyled';
 import Congratulations from '../Congratulations/congratulations';
+import ImageSequenceScreen from './ImageSequenceScreen'; // ✅ Adicionado
 
 const Quiz = (props) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -18,7 +19,7 @@ const Quiz = (props) => {
   const level = props.level;
 
   useEffect(() => {
-    clearLevelAnswers(level); 
+    clearLevelAnswers(level);
   }, [level]);
 
   const imagens = {
@@ -68,37 +69,76 @@ const Quiz = (props) => {
 
   const lastIntroScreen = lastIntroScreenByLevel[level] || 1;
 
-const handleAnswerClick = (answerIndex) => {
-  const currentQuestion = questions[currentQuestionIndex];
-  const selectedOption = currentQuestion.options?.[answerIndex];
+  const handleAnswerClick = (answerIndex) => {
+    const currentQuestion = questions[currentQuestionIndex];
+    const selectedOption = currentQuestion.options?.[answerIndex];
 
-  if (selectedOption?.isSkip) {
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
-    return;
-  }
+    if (selectedOption?.isSkip) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      return;
+    }
 
-  if (selectedOption && isAnswerCorrect === null) {
-    const isCorrect = selectedOption.answerIndex;
-    const questionId = currentQuestion.id;
-    saveAnswer(level, questionId, isCorrect);
+    if (selectedOption && isAnswerCorrect === null) {
+      const isCorrect = selectedOption.answerIndex;
+      const questionId = currentQuestion.id;
+      saveAnswer(level, questionId, isCorrect);
 
-    setSelectedAnswerIndex(answerIndex);
-    setIsAnswerCorrect(isCorrect);
-    setFeedbackText(isCorrect ? '✅ Parabéns!' : '❌ Tente outra vez!');
+      setSelectedAnswerIndex(answerIndex);
+      setIsAnswerCorrect(isCorrect);
+      setFeedbackText(isCorrect ? '✅ Parabéns!' : '❌ Tente outra vez!');
 
-    setTimeout(() => {
-      if (isCorrect) {
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-      }
-      setSelectedAnswerIndex(null);
-      setIsAnswerCorrect(null);
-      setFeedbackText('');
-    }, 2000);
-  }
-};
+      setTimeout(() => {
+        if (isCorrect) {
+          setCurrentQuestionIndex(currentQuestionIndex + 1);
+        }
+        setSelectedAnswerIndex(null);
+        setIsAnswerCorrect(null);
+        setFeedbackText('');
+      }, 2000);
+    }
+  };
 
   const showImage = url => url ? <img src={getImagens(url)} alt="" /> : null;
   const showVideo = url => <video controls src={getVideos(url)} width="560" height="315" />;
+
+  if (questions[currentQuestionIndex]?.isImageSequence) {
+    const imagens = questions[currentQuestionIndex].sequence.map(({ image, description }) => ({
+      img: require(`../../assets/images/levels/level2/${image}`),
+      texto: description
+    }));
+
+    return (
+      <AppWrapper style={{ backgroundColor: "#F2C824" }}>
+        {feedbackText !== '' && (
+          <div style={{
+            position: 'absolute',
+            top: 20,
+            right: 20,
+            backgroundColor: 'white',
+            padding: '8px 12px',
+            borderRadius: '8px',
+            fontWeight: '500',
+            fontSize: '18px',
+            color: isAnswerCorrect ? 'green' : 'red',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            width: '220px',
+            textAlign: 'center',
+            minHeight: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            {feedbackText}
+          </div>
+        )}
+        <ImageSequenceScreen
+          level={level}
+          imagens={imagens}
+          onFinish={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+        />
+      </AppWrapper>
+    );
+  }
 
   const renderQuestion = () => (
     <QuizWrapper>
@@ -112,13 +152,13 @@ const handleAnswerClick = (answerIndex) => {
         </Link>
       </div>
 
-    {!questions[currentQuestionIndex].isVideo && (
-      <BackArrow>
-        <Link to={`/level${level}-${lastIntroScreen}`}>
-          <FontAwesomeIcon icon={faAngleLeft} size="3x" />
-        </Link>
-      </BackArrow>
-    )}
+      {!questions[currentQuestionIndex].isVideo && (
+        <BackArrow>
+          <Link to={`/level${level}-${lastIntroScreen}`}>
+            <FontAwesomeIcon icon={faAngleLeft} size="3x" />
+          </Link>
+        </BackArrow>
+      )}
 
       {questions[currentQuestionIndex].isVideo
         ? showVideo(questions[currentQuestionIndex].video.url)

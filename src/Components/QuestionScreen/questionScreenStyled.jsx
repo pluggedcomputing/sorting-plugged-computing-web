@@ -181,3 +181,100 @@ export const BackArrow = styled.div`
     text-decoration: none;
   }
 `;
+
+export const SequenceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  position: relative;
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 1.5rem;
+  }
+
+  img {
+    width: 80%;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+
+  .description-text {
+    margin-top: 2rem;
+    font-size: 1.8rem; /* ou 2rem para ainda maior */
+    color: #07377A;
+    text-align: center;
+    max-width: 90%;
+    font-weight: 600; /* mais destaque */
+    line-height: 1.6;
+  }
+
+  .skip-button {
+    background-color: #07377A;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+  }
+
+  .home-button {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+  }
+
+  .home-button a {
+    background-color: #F2C824;
+    padding: 12px;
+    border-radius: 50%;
+    color: #07377A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .description-text {
+      font-size: 1.4rem;
+    }
+
+    img {
+      width: 90%;
+    }
+  }
+`;
+
+export const ArrowsWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  span {
+    color: #500D7C;
+    text-decoration: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+
+  .disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+`;
+
+
