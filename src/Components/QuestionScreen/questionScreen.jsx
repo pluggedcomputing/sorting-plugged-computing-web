@@ -103,7 +103,7 @@ const Quiz = (props) => {
 
   if (questions[currentQuestionIndex]?.isImageSequence) {
     const imagens = questions[currentQuestionIndex].sequence.map(({ image, description }) => ({
-      img: require(`../../assets/images/levels/level2/${image}`),
+      img: require(`../../assets/images/levels/level${level}/${image}`),
       texto: description
     }));
 

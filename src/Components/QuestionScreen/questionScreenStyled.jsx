@@ -254,7 +254,7 @@ export const SequenceContainer = styled.div`
 `;
 
 export const ArrowsWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 0;
   right: 0;
