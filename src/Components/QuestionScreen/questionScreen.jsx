@@ -49,6 +49,10 @@ const Quiz = (props) => {
     l4q3_h: require('../../assets/images/levels/level4/level4_12.png'),
     l4q3_i: require('../../assets/images/levels/level4/level4_13.png'),
     l4q3_j: require('../../assets/images/levels/level4/level4_14.png'),
+    l5q1_a: require('../../assets/images/levels/level5/level5_4.png'),
+    l5q2_a: require('../../assets/images/levels/level5/level5_5.png'),
+    l5q3_a: require('../../assets/images/levels/level5/level5_6.png'),
+    l5q4_a: require('../../assets/images/levels/level5/level5_7.png'),
   };
 
   const videos = {
