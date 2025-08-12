@@ -1,16 +1,13 @@
-import LevelScreen from '../../../Components/LevelScreen/levelScreen';
-import level5_2 from '../../../assets/images/levels/level5/level5_2.png';
+import QuestionScreen from '../../../Components/QuestionScreen/questionScreen'
+import level2_4 from '../../../assets/images/levels/level2/level2_4.png'
+import questionsLevel5 from '../../../data/questionsLevel5';
 
-const level5_page2 = () => {
+
+const level2_page3 = () => {
     return (
-        <LevelScreen
-            previousLevel="/level5-1"
-            level={5}
-            image={level5_2}
-            description="O Merge Sort segue passos bem definidos para colocar os elementos na ordem correta. Ele garante que, ao final de cada etapa, tudo esteja mais próximo do resultado ideal."
-            nextLevel="/level5-3"
-        />
-    )
+        <QuestionScreen image={level2_4} questions={questionsLevel5} level={5} />
+    );
 }
 
-export default level5_page2;
+
+export default level2_page3;

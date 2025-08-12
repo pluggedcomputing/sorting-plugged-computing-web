@@ -7,7 +7,7 @@ const level4_page1 = () => {
             previousLevel="/LevelSelection"
             level={4}
             image={level4_1}
-            description="Agora vamos comparar os métodos de Ordenação por Inserção e Quicksort."
+            description="O Merge Sort é um algoritmo que segue a ideia de dividir para conquistar. Ele começa com uma lista de elementos, separa em partes menores e depois junta tudo novamente em ordem, por meio da intercalação."
             nextLevel="/level4-2"
         />
     )

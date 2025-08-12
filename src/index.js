@@ -24,12 +24,11 @@ import Level3Page4 from './screens/levels/level3/level3_page4';
 
 import Level4Page1 from './screens/levels/level4/level4_page1';
 import Level4Page2 from './screens/levels/level4/level4_page2';
-
+import Level4Page3 from './screens/levels/level4/level4_page3';
+import Level4Page4 from './screens/levels/level4/level4_page4';
 
 import Level5Page1 from './screens/levels/level5/level5_page1';
 import Level5Page2 from './screens/levels/level5/level5_page2';
-import Level5Page3 from './screens/levels/level5/level5_page3';
-import Level5Page4 from './screens/levels/level5/level5_page4';
 
 
 const router = createBrowserRouter([
@@ -79,26 +78,14 @@ const router = createBrowserRouter([
   },
 
 
-  {path:'/level4-1',
-  element: <Level4Page1 />
-  },
-  {path:'/level4-2',
-  element: <Level4Page2 />
-  },
+  { path: '/level4-1', element: <Level4Page1 /> },
+  { path: '/level4-2', element: <Level4Page2 /> },
+  { path: '/level4-3', element: <Level4Page3 /> },
+  { path: '/level4-4', element: <Level4Page4 /> },
 
-  
-  {path: '/level5-1', 
-  element: <Level5Page1 /> 
-  },
-  {path: '/level5-2', 
-  element: <Level5Page2 /> 
-  },
-  {path: '/level5-3', 
-  element: <Level5Page3 /> 
-  },
-  {path: '/level5-4', 
-  element: <Level5Page4 /> 
-  },
+  { path: '/level5-1', element: <Level5Page1 /> },
+  { path: '/level5-2', element: <Level5Page2 /> },
+
 
 ])
 

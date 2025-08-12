@@ -7,7 +7,7 @@ const level5_page1 = () => {
             previousLevel="/LevelSelection"
             level={5}
             image={level5_1}
-            description="O Merge Sort é um algoritmo que segue a ideia de dividir para conquistar. Ele começa com uma lista de elementos, separa em partes menores e depois junta tudo novamente em ordem, por meio da intercalação."
+            description="Agora vamos comparar os métodos de Ordenação por Inserção e Quicksort."
             nextLevel="/level5-2"
         />
     )

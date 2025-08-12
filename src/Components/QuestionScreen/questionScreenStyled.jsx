@@ -58,7 +58,10 @@ export const QuizWrapper = styled.div`
   img {
     width: 65%;
     max-width: 500px;
+    height: auto;
     margin-bottom: 20px;
+    max-height: 55vh; 
+    object-fit: contain;
   }
 
   video {
@@ -125,6 +128,11 @@ export const QuizWrapper = styled.div`
       max-height: 380px;
       margin: 20px 0;
     }
+
+    img {
+      width: 90%;
+      max-height: 40vh;
+    }
   }
 
   @media (max-width: 900px) and (min-width: 770px) {
@@ -138,15 +146,30 @@ export const QuizWrapper = styled.div`
     & p {
       font-size: 2rem;
     }
+
+    img {
+      width: 80%;
+      max-height: 45vh;
+    }
   }
 
   @media (max-width: 1200px) and (min-width: 900px) {
     width: 600px;
+
+    img {
+      width: 70%;
+      max-height: 50vh;
+    }
   }
 
   @media (max-width: 768px) {
     video {
       margin: 20px 0;
+    }
+
+    img {
+      width: 90%;
+      max-height: 40vh;
     }
   }
 
@@ -154,11 +177,20 @@ export const QuizWrapper = styled.div`
     video {
       margin: 20px 0;
     }
+
+    img {
+      width: 95%;
+      max-height: 35vh;
+    }
   }
 
   @media (max-height: 800px) {
     video {
       margin: 20px 0;
+    }
+
+    img {
+      max-height: 40vh;
     }
   }
 
@@ -166,7 +198,12 @@ export const QuizWrapper = styled.div`
     video {
       margin: 20px 0;
     }
+
+    img {
+      max-height: 35vh;
+    }
   }
+
 `;
 
 export const BackArrow = styled.div`

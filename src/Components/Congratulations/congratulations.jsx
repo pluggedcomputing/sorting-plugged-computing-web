@@ -76,7 +76,7 @@ const Congratulations = ({ level, levelReload, score }) => {
           </div>
         </button>
 
-          <Link to={level === 4 ? `/LevelSelection` : `/level${level + 1}-1`}>
+          <Link to={level === 5 ? `/LevelSelection` : `/level${level + 1}-1`}>
             <div className="nav-btn">
               <div className="containerButton">
                 {nextLevelIcon}
