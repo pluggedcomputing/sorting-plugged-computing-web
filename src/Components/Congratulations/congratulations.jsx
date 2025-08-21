@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Container } from "./congratulationsStyled";
 import congratulations from '../../assets/images/congratulations/win_level.png';
@@ -7,6 +8,48 @@ import { clearLevelAnswers } from "../../services/QuizStorageService";
 
 const Congratulations = ({ level, levelReload, score }) => {
   const navigate = useNavigate();
+
+  // Envia as respostas salvas localmente para o servidor
+  useEffect(() => {
+    const STORAGE_KEY = 'ordenacao_respostas';
+    const savedData = localStorage.getItem(STORAGE_KEY);
+
+    if (!savedData) return;
+
+    const parsed = JSON.parse(savedData);
+    const userId = localStorage.getItem('userId') || 'user-local';
+
+    const respostas = [];
+
+    for (const [nivel, questoes] of Object.entries(parsed)) {
+      for (const [questaoId, tentativas] of Object.entries(questoes)) {
+        const acertou = tentativas.includes(true);
+        respostas.push({
+          id: '',
+          userId,
+          level: parseInt(nivel),
+          question: parseInt(questaoId),
+          answer: acertou
+        });
+      }
+    }
+
+    if (respostas.length > 0) {
+      fetch('https://activities.a4s.dev.br/api/response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(respostas)
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Erro ao enviar respostas');
+          return res.json();
+        })
+        .then(res => console.log('Respostas salvas com sucesso:', res))
+        .catch(err => console.error('Erro ao salvar respostas:', err));
+    }
+  }, []);
 
   const houseIcon = <FontAwesomeIcon icon={faHouse} size="2x" />;
   const reloadIcon = <FontAwesomeIcon icon={faArrowRightRotate} size="2x" color="white" />;
@@ -64,17 +107,17 @@ const Congratulations = ({ level, levelReload, score }) => {
               </div>
             </div>
           </Link>
-          
-        <button
-          className="nav-btn"
-          onClick={handleRetry}
-          aria-label="Reiniciar fase"
-          style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
-        >
-          <div className="containerButton">
-            {reloadIcon}
-          </div>
-        </button>
+
+          <button
+            className="nav-btn"
+            onClick={handleRetry}
+            aria-label="Reiniciar fase"
+            style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
+          >
+            <div className="containerButton">
+              {reloadIcon}
+            </div>
+          </button>
 
           <Link to={level === 5 ? `/LevelSelection` : `/level${level + 1}-1`}>
             <div className="nav-btn">
