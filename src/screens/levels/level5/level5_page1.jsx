@@ -7,7 +7,7 @@ const level5_page1 = () => {
             previousLevel="/LevelSelection"
             level={5}
             image={level5_1}
-            description="Agora vamos comparar os métodos de Ordenação por Inserção e Quicksort."
+            description="Agora vamos comparar três métodos de ordenação: Insertion Sort, Quicksort e Merge Sort."
             nextLevel="/level5-2"
         />
     )

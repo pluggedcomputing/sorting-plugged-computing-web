@@ -51,12 +51,6 @@ const ImageSequenceScreen = ({ imagens, onFinish }) => {
       {/* Texto explicativo */}
       <div className="description-text">{imagens[index].texto}</div>
 
-      {/* Botão de avançar no final */}
-      {index === imagens.length - 1 && (
-        <button className="skip-button" onClick={onFinish}>
-          Avançar
-        </button>
-      )}
     </SequenceContainer>
   );
 };

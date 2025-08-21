@@ -18,7 +18,7 @@ const levelSelection = () => {
                 <CardLevel level={2} image={level2} description="Ordenação por inserção: Insertion Sort." routerLink="/level2-1" />
                 <CardLevel level={3} image={level3} description="Ordenação rápida: Quicksort." routerLink="/level3-1" />
                 <CardLevel level={4} image={level4} description="Ordenação por intercalação: Merge Sort." routerLink="/level4-1" />
-                <CardLevel level={5} image={level5} description="Ordenação por inserção x Quicksort." routerLink="/level5-1" />
+                <CardLevel level={5} image={level5} description="Insertion Sort × Quicksort × Merge Sort: Quem se sai melhor?" routerLink="/level5-1" />
 
             </div>
         </div>

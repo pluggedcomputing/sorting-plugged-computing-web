@@ -41,6 +41,7 @@ const Quiz = (props) => {
     l4q2_a: require('../../assets/images/levels/level4/level4_5.png'),
     l4q3_a: require('../../assets/images/levels/level4/level4_6.png'),
     l4q4_a: require('../../assets/images/levels/level4/level4_7.png'),
+    l5q0_a: require('../../assets/images/levels/level5/level5_0.png'),
     l5q1_a: require('../../assets/images/levels/level5/level5_2.png'),
     l5q2_a: require('../../assets/images/levels/level5/level5_3.png'),
     l5q3_a: require('../../assets/images/levels/level5/level5_4.png'),
@@ -53,12 +54,13 @@ const Quiz = (props) => {
     l5q3_h: require('../../assets/images/levels/level5/level5_12.png'),
     l5q3_i: require('../../assets/images/levels/level5/level5_13.png'),
     l5q3_j: require('../../assets/images/levels/level5/level5_14.png'),
+    l5q3_k: require('../../assets/images/levels/level5/level5_15.png'),
   };
 
   const videos = {
     l2_mp4: require('../../assets/videos/level2.mp4'),
     l3_mp4: require('../../assets/videos/level3.mp4'),
-    l4_mp4: require('../../assets/videos/level5.mp4'),
+    l5_mp4: require('../../assets/videos/level5.mp4'),
   };
 
   const getImagens = type => imagens[type] || null;
